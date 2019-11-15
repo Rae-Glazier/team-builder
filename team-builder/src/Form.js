@@ -1,21 +1,35 @@
 import React from 'react';
+import { useState } from 'react';
+
+//create list of team members
+//assign key/value pairs to team members
+//create useState
 
 const Form = props => {
-    // console.log(props.teams);
+    const [team, setTeam] = useState({name: '', email: '', role:''});
 
-    return (
-        <div className='team-list'>
-            {props.teams.map(form => (
-                console.log(form.name)
-                // <div className='form' key={form.id}>
-                //     <h2>{form.name}</h2>
-                //     <p>{form.email}</p>
-                //     <p>{form.role}</p>
-                // </div>
-            ))}
-        </div>
-    );
-};
+    const handleChanges = e => {
+        setTeam({...team, [e.target.name]: e.target.value});
+    };
+
+    const submitForm = e => {
+        e.preventDefault();
+        props.addNewForm(team);
+        setTeam({name: '', email: '', role:''});
+    };
+
+    return(
+        <form onSubmit={submitForm}>
+            <label htmlFor='name'>Name</label>
+            <input
+                id='name'
+                type='text'
+                name='name'
+                onChange={handleChanges}
+                value={team.name}
+            />
+        </form>
+    )
+}
 
 export default Form;
-  

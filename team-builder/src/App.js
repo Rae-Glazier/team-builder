@@ -1,9 +1,9 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
-import TeamMembers from '../src/TeamMembers';
-import Form from '../src/Form';
-import { useState } from 'react';
+import TeamMembers from './TeamMembers';
+import Form from './Form';
+import { useState } from 'react'
 
 function App() {
   const [teams, setTeams] = useState([{
