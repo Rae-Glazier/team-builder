@@ -1,11 +1,32 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
+import TeamMembers from '../src/TeamMembers';
+import Form from '../src/Form';
+import { useState } from 'react';
 
 function App() {
+  const [teams, setTeams] = useState([{
+    id: 1,
+    name: 'Rae Glazier',
+    email: 'glazier.home.life@gmail.com',
+    role: 'Junior Web Dev'
+  }
+]);
+
+const addNewForm = form => {
+  const newForm = {
+    id: Date.now(),
+    name: form.name,
+    email: form.email,
+    role: form.role
+  };
+  setTeams([...teams, newForm]);
+};
+
   return (
     <div className="App">
-      <header className="App-header">
+      {/* <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
           Edit <code>src/App.js</code> and save to reload.
@@ -18,7 +39,10 @@ function App() {
         >
           Learn React
         </a>
-      </header>
+      </header> */}
+      <h1>My Team</h1>
+      <Form addNewForm={addNewForm} />
+      <TeamMembers teams={teams} />
     </div>
   );
 }
