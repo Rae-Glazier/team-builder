@@ -28,6 +28,34 @@ const Form = props => {
                 onChange={handleChanges}
                 value={team.name}
             />
+
+            <br></br>
+
+            <label htmlFor='email'>Email</label>
+            <input 
+                id='email'
+                type='text'
+                name='email'
+                onChange={handleChanges}
+                value={team.email}
+            />
+
+
+            <br></br>
+
+
+            <label htmlFor='role'>Role</label>
+            <input 
+                id='role'
+                type='text'
+                name='role'
+                onChange={handleChanges}
+                value={team.role}
+            />
+            
+            <br></br>
+
+            <button type='submit'>Add Team Member</button>
         </form>
     )
 }
